@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Mongo.WebApp.Models;
-using Mongo.WebApp.Services;
+using MongoHotlist;
+using RandomNameGeneratorNG;
 
 namespace Mongo.WebApp
 {
@@ -22,7 +22,7 @@ namespace Mongo.WebApp
         {
             services.AddControllers();
             services.AddSwaggerGen();
-            services.Configure<DatabaseSettings>(Configuration.GetSection("Database"));
+            services.AddSingleton<PersonNameGenerator>();
             services.AddSingleton<HotlistService>();
         }
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace Mongo.WebApp.Models
+namespace MongoHotlist.Models
 {
     public class HotlistRecord
     {

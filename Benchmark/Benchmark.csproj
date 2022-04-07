@@ -14,4 +14,8 @@
       <PackageReference Include="StackExchange.Redis" Version="2.5.43" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\MongoHotlist\MongoHotlist.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Mongo.WebApp.Models
+namespace MongoHotlist.Models
 {
     public class Hotlist
     {
@@ -14,6 +14,7 @@ namespace Mongo.WebApp.Models
 
         public string Name { get; set; }
 
+        [BsonElement("HotlistRecords")]
         public List<HotlistRecord> HotlistRecord { get; set; }
     }
 }

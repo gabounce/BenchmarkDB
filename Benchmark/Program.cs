@@ -7,8 +7,9 @@ namespace Benchmark
     {
         static async Task Main(string[] args)
         {
-            BenchmarkRunner.Run<TestRedis>();
-            //BenchmarkRunner.Run<TestPostgres>();
+            // BenchmarkRunner.Run<TestRedis>();
+            // BenchmarkRunner.Run<TestPostgres>();
+            BenchmarkRunner.Run<TestMongo>();
         }
     }
 }

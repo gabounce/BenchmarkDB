@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Mongo.WebApp.Models;
-using Mongo.WebApp.Services;
+using MongoHotlist;
+using MongoHotlist.Models;
 
 namespace Mongo.WebApp.Controllers
 {
@@ -16,19 +16,7 @@ namespace Mongo.WebApp.Controllers
         {
             _hotlistService = hotlistService;
         }
-        /*
-        private const string ConnectionString = "User ID=testuser;Password=Password00;Host=localhost;Port=5432;Database=testdb;";
-        
-        [HttpGet("contains/{name}")]
-        public async Task<IActionResult> Contains(string name)
-        {
-            string result;
-            await using (var connection = new NpgsqlConnection(ConnectionString))
-            {
-                result = connection.QueryFirstOrDefault<string>($"SELECT name FROM users where hotlistid = 1 and name = '{name}'");
-            }
-            return Ok(!string.IsNullOrEmpty(result));
-        }
+        /*      
         
         [HttpGet("containsWildCard/{name}")]
         public async Task<IActionResult> ContainsWildCard(string name)
@@ -51,36 +39,31 @@ namespace Mongo.WebApp.Controllers
             }
             return Ok(result);
         }*/
-        
-        [HttpGet]
-        public async Task<List<Hotlist>> Get() =>
-            await _hotlistService.GetAsync();
-        
 
-        [HttpGet("{id:length(24)}")]
-        public async Task<ActionResult<Hotlist>> Get(string id)
+        [HttpGet("contains/{recordValue}")]
+        public async Task<IActionResult> Contains(string recordValue)
         {
-            var hotlist = await _hotlistService.GetAsync(id);
-
-            if (hotlist is null)
-            {
-                return NotFound();
-            }
-
-            return hotlist;
+            var result = await _hotlistService.GetRecordAsync(Constants.HotlistName, recordValue);
+            return Ok(result != null);
         }
 
         [HttpGet("load/{n}")]
         public async Task<IActionResult> Load(int n)
         {
+            await _hotlistService.RemoveAsync(Constants.HotlistName);
             var hotlist = new Hotlist
             {
-                TenantId = 2,
-                Name = "IPGreyList",
+                TenantId = 1,
+                Name = Constants.HotlistName,
                 HotlistRecord = new List<HotlistRecord>()
             };
             await _hotlistService.CreateAsync(hotlist);
-            return CreatedAtAction(nameof(Get), new { id = hotlist.Id }, hotlist);
+            for (var i = 0; i < n; i++)
+            {
+                await _hotlistService.CreateRecordAsync(Constants.HotlistName);
+            }
+
+            return Ok();
         }
     }
 }
