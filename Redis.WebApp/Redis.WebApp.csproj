@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="RandomNameGeneratorNG" Version="2.0.1" />
       <PackageReference Include="StackExchange.Redis" Version="2.5.43" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
     </ItemGroup>

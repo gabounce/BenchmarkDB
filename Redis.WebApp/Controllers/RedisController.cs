@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RandomNameGeneratorNG;
 using StackExchange.Redis;
 
-namespace WebApplication.Controllers
+namespace Redis.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -41,18 +41,15 @@ namespace WebApplication.Controllers
         {
             var db = _redis.GetDatabase();
             db.KeyDelete(key);
-            var rand = new Random();
+
+            var generator = new PersonNameGenerator();
+            
             for (var i = 0; i < n; i++)
             {
-                db.SetAdd(key, new RedisValue(GetRandIp(rand)));
+                db.SetAdd(key, new RedisValue(generator.GenerateRandomFirstAndLastName()));
             }
 
             return Ok();
-        }
-
-        private static string GetRandIp(Random rand)
-        {
-            return ($"{rand.Next(1, 254)}.{rand.Next(1, 254)}.{rand.Next(1, 254)}.{rand.Next(1, 254)}");
         }
     }
 }

@@ -1,8 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutoRedis", "TutoRedis\TutoRedis.csproj", "{11CD2956-0CE0-475B-A267-16701E42B7BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benchmark.csproj", "{11CD2956-0CE0-475B-A267-16701E42B7BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{576DA461-8153-4A52-983F-9CB645A1A1D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis.WebApp", "Redis.WebApp\Redis.WebApp.csproj", "{576DA461-8153-4A52-983F-9CB645A1A1D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postgres.WebApp", "Postgres.WebApp\Postgres.WebApp.csproj", "{B9A2DEC5-AB89-4FFC-9E32-B723373B6CED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongo.WebApp", "Mongo.WebApp\Mongo.WebApp.csproj", "{C76A3F9A-623B-4CC9-B324-161F4393CB04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +22,13 @@ Global
 		{576DA461-8153-4A52-983F-9CB645A1A1D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{576DA461-8153-4A52-983F-9CB645A1A1D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{576DA461-8153-4A52-983F-9CB645A1A1D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A2DEC5-AB89-4FFC-9E32-B723373B6CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A2DEC5-AB89-4FFC-9E32-B723373B6CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A2DEC5-AB89-4FFC-9E32-B723373B6CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A2DEC5-AB89-4FFC-9E32-B723373B6CED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C76A3F9A-623B-4CC9-B324-161F4393CB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C76A3F9A-623B-4CC9-B324-161F4393CB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C76A3F9A-623B-4CC9-B324-161F4393CB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C76A3F9A-623B-4CC9-B324-161F4393CB04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -7,6 +7,10 @@
 
     <ItemGroup>
       <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+      <PackageReference Include="Dapper" Version="2.0.123" />
+      <PackageReference Include="Faker" Version="1.2.0" />
+      <PackageReference Include="Npgsql" Version="7.0.0-preview.2" />
+      <PackageReference Include="RandomNameGeneratorNG" Version="2.0.1" />
       <PackageReference Include="StackExchange.Redis" Version="2.5.43" />
     </ItemGroup>
 
